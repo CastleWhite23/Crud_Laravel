@@ -1,5 +1,5 @@
 
-@extends('Plantas.layouts')
+@extends('plantas.layouts')
 
 @section('content')
 
@@ -13,9 +13,9 @@
         @endif
 
         <div class="card">
-            <div class="card-header">planta List</div>
+            <div class="card-header">Lista de Plantas</div>
             <div class="card-body">
-                <a href="{{ route('Plantas.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Add New planta</a>
+                <a href="{{ route('plantas.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Adicionar nova Planta</a>
                 <table class="table table-striped table-bordered">
                     <thead>
                       <tr>
@@ -27,7 +27,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @forelse ($Plantas as $planta)
+                        @forelse ($plantas as $planta)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $planta->code }}</td>
@@ -35,29 +35,29 @@
                             <td>{{ $planta->quantity }}</td>
                             <td>{{ $planta->price }}</td>
                             <td>
-                                <form action="{{ route('Plantas.destroy', $planta->id) }}" method="post">
+                                <form action="{{ route('plantas.destroy', $planta->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
 
-                                    <a href="{{ route('Plantas.show', $planta->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Show</a>
+                                    <a href="{{ route('plantas.show', $planta->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Visualizar</a>
 
-                                    <a href="{{ route('Plantas.edit', $planta->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>   
+                                    <a href="{{ route('plantas.edit', $planta->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>   
 
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this planta?');"><i class="bi bi-trash"></i> Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this planta?');"><i class="bi bi-trash"></i> Deletar</button>
                                 </form>
                             </td>
                         </tr>
                         @empty
                             <td colspan="6">
                                 <span class="text-danger">
-                                    <strong>No planta Found!</strong>
+                                    <strong>Nenhuma Planta Encontrada!</strong>
                                 </span>
                             </td>
                         @endforelse
                     </tbody>
                   </table>
 
-                  {{ $Plantas->links() }}
+                  {{ $plantas->links() }}
 
             </div>
         </div>

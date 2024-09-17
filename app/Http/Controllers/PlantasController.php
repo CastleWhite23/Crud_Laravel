@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Plantas;
+use App\Models\plantas;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\StorePlantasRequest;
-use App\Http\Requests\UpdatePlantasRequest;
+use App\Http\Requests\StoreplantasRequest;
+use App\Http\Requests\UpdateplantasRequest;
 
-class PlantasController extends Controller
+class plantasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index() : View
     {
-        return view('Plantas.index', [
-            'Plantas' => Plantas::latest()->paginate(3)
+        return view('plantas.index', [
+            'plantas' => Plantas::latest()->paginate(3)
         ]);
     }
 
@@ -25,7 +25,7 @@ class PlantasController extends Controller
      */
     public function create() : View
     {
-        return view('Plantas.create');
+        return view('plantas.create');
     }
 
     /**
@@ -34,47 +34,47 @@ class PlantasController extends Controller
     public function store(StorePlantasRequest $request) : RedirectResponse
     {
         Plantas::create($request->all());
-        return redirect()->route('Plantas.index')
+        return redirect()->route('plantas.index')
                 ->withSuccess('Nova Planta adicionada com sucesso.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Plantas $Plantas) : View
+    public function show(Plantas $plantas) : View
     {
-        return view('Plantas.show', [
-            'Plantas' => $Plantas
+        return view('plantas.show', [
+            'plantas' => $plantas
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Plantas $Plantas) : View
+    public function edit(Plantas $plantas) : View
     {
-        return view('Plantas.edit', [
-            'Plantas' => $Plantas
+        return view('plantas.edit', [
+            'plantas' => $plantas
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePlantasRequest $request, Plantas $Plantas) : RedirectResponse
+    public function update(UpdatePlantasRequest $request, Plantas $plantas) : RedirectResponse
     {
-        $Plantas->update($request->all());
+        $plantas->update($request->all());
         return redirect()->back()
-                ->withSuccess('Plantas is updated successfully.');
+                ->withSuccess('plantas is updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Plantas $Plantas) : RedirectResponse
+    public function destroy(Plantas $plantas) : RedirectResponse
     {
-        $Plantas->delete();
-        return redirect()->route('Plantas.index')
-                ->withSuccess('Plantas is deleted successfully.');
+        $plantas->delete();
+        return redirect()->route('plantas.index')
+                ->withSuccess('plantas is deleted successfully.');
     }
 }
