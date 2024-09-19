@@ -29,11 +29,11 @@
                     <tbody>
                         @forelse ($plantas as $planta)
                         <tr>
-                            <th scope="row">{{ $loop->iteration }}</th>
-                            <td>{{ $planta->code }}</td>
-                            <td>{{ $planta->name }}</td>
-                            <td>{{ $planta->quantity }}</td>
-                            <td>{{ $planta->price }}</td>
+                            <th scope="row">{{ $planta->id }}</th>
+                            <td>{{ $planta->Espécie }}</td>
+                            <td>{{ $planta->Tipo }}</td>
+                            <td>{{ $planta->Porte }}</td>
+                            <td>{{ $planta->Foto }}</td>
                             <td>
                                 <form action="{{ route('plantas.destroy', $planta->id) }}" method="post">
                                     @csrf

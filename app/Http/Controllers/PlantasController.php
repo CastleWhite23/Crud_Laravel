@@ -18,7 +18,9 @@ class plantasController extends Controller
         return view('plantas.index', [
             'plantas' => Plantas::latest()->paginate(3)
         ]);
+
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -41,10 +43,10 @@ class plantasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Plantas $plantas) : View
+    public function show(Plantas $planta) : View
     {
         return view('plantas.show', [
-            'plantas' => $plantas
+            'planta' => $planta
         ]);
     }
 

@@ -1,5 +1,5 @@
 
-@extends('products.layouts')
+@extends('plantas.layouts') 
 
 @section('content')
 
@@ -9,46 +9,46 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-start">
-                    Product Information
+                    plantas Information
                 </div>
                 <div class="float-end">
-                    <a href="{{ route('products.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
+                    <a href="{{ route('plantas.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
                 </div>
             </div>
             <div class="card-body">
 
                     <div class="row">
-                        <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>Code:</strong></label>
+                        <label for="code" class="col-md-4 col-form-label text-md-end text-start"><strong>Id:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $product->code }}
+                            {{ $planta->id }}
                         </div>
                     </div>
 
                     <div class="row">
-                        <label for="name" class="col-md-4 col-form-label text-md-end text-start"><strong>Name:</strong></label>
+                        <label for="name" class="col-md-4 col-form-label text-md-end text-start"><strong>Espécie:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $product->name }}
+                            {{ $planta->Espécie }}
                         </div>
                     </div>
 
                     <div class="row">
-                        <label for="quantity" class="col-md-4 col-form-label text-md-end text-start"><strong>Quantity:</strong></label>
+                        <label for="quantity" class="col-md-4 col-form-label text-md-end text-start"><strong>Porte:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $product->quantity }}
+                            {{ $planta->Porte }}
                         </div>
                     </div>
 
                     <div class="row">
-                        <label for="price" class="col-md-4 col-form-label text-md-end text-start"><strong>Price:</strong></label>
+                        <label for="price" class="col-md-4 col-form-label text-md-end text-start"><strong>Tipo:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $product->price }}
+                            {{ $planta->Tipo }}
                         </div>
                     </div>
 
                     <div class="row">
-                        <label for="description" class="col-md-4 col-form-label text-md-end text-start"><strong>Description:</strong></label>
+                        <label for="description" class="col-md-4 col-form-label text-md-end text-start"><strong>Foto:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $product->description }}
+                            {{ $planta->Foto }}
                         </div>
                     </div>
         

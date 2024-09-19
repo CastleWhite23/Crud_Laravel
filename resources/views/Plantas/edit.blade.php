@@ -1,5 +1,5 @@
 
-@extends('products.layouts')
+@extends('plantas.layouts')
 
 @section('content')
 
@@ -15,21 +15,21 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-start">
-                    Edit Product
+                    Edit planta
                 </div>
                 <div class="float-end">
-                    <a href="{{ route('products.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
+                    <a href="{{ route('plantas.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('products.update', $product->id) }}" method="post">
+                <form action="{{ route('plantas.update', $planta->id) }}" method="post">
                     @csrf
                     @method("PUT")
 
                     <div class="mb-3 row">
                         <label for="code" class="col-md-4 col-form-label text-md-end text-start">Code</label>
                         <div class="col-md-6">
-                          <input type="text" class="form-control @error('code') is-invalid @enderror" id="code" name="code" value="{{ $product->code }}">
+                          <input type="text" class="form-control @error('code') is-invalid @enderror" id="code" name="code" value="{{ $planta->code }}">
                             @if ($errors->has('code'))
                                 <span class="text-danger">{{ $errors->first('code') }}</span>
                             @endif
@@ -39,7 +39,7 @@
                     <div class="mb-3 row">
                         <label for="name" class="col-md-4 col-form-label text-md-end text-start">Name</label>
                         <div class="col-md-6">
-                          <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $product->name }}">
+                          <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $planta->name }}">
                             @if ($errors->has('name'))
                                 <span class="text-danger">{{ $errors->first('name') }}</span>
                             @endif
@@ -49,7 +49,7 @@
                     <div class="mb-3 row">
                         <label for="quantity" class="col-md-4 col-form-label text-md-end text-start">Quantity</label>
                         <div class="col-md-6">
-                          <input type="number" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" value="{{ $product->quantity }}">
+                          <input type="number" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" value="{{ $planta->quantity }}">
                             @if ($errors->has('quantity'))
                                 <span class="text-danger">{{ $errors->first('quantity') }}</span>
                             @endif
@@ -59,7 +59,7 @@
                     <div class="mb-3 row">
                         <label for="price" class="col-md-4 col-form-label text-md-end text-start">Price</label>
                         <div class="col-md-6">
-                          <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ $product->price }}">
+                          <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ $planta->price }}">
                             @if ($errors->has('price'))
                                 <span class="text-danger">{{ $errors->first('price') }}</span>
                             @endif
@@ -69,7 +69,7 @@
                     <div class="mb-3 row">
                         <label for="description" class="col-md-4 col-form-label text-md-end text-start">Description</label>
                         <div class="col-md-6">
-                            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description">{{ $product->description }}</textarea>
+                            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description">{{ $planta->description }}</textarea>
                             @if ($errors->has('description'))
                                 <span class="text-danger">{{ $errors->first('description') }}</span>
                             @endif
