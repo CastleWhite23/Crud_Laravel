@@ -53,29 +53,31 @@ class plantasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Plantas $plantas) : View
+    public function edit(Plantas $planta) : View
     {
         return view('plantas.edit', [
-            'plantas' => $plantas
+            'planta' => $planta
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePlantasRequest $request, Plantas $plantas) : RedirectResponse
-    {
-        $plantas->update($request->all());
-        return redirect()->back()
-                ->withSuccess('plantas is updated successfully.');
-    }
+
+     public function update(UpdatePlantasRequest $request, Plantas $planta) : RedirectResponse
+     {
+         $planta->update($request->except(['id'])); // Exclui o campo 'id' do request
+         return redirect()->route('plantas.index')
+                 ->withSuccess('planta is updated successfully.');
+     }
+     
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Plantas $plantas) : RedirectResponse
+    public function destroy(Plantas $planta) : RedirectResponse
     {
-        $plantas->delete();
+        $planta->delete();
         return redirect()->route('plantas.index')
                 ->withSuccess('plantas is deleted successfully.');
     }

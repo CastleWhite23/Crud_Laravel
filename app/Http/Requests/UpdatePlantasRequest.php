@@ -11,7 +11,7 @@ class UpdatePlantasRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdatePlantasRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'required|integer|exists:plantas,id',
+            'Espécie' => 'required|string|max:250',
+            'Tipo' => 'required|string|max:10000',
+            'Porte' => 'required',
+            'Foto' => 'nullable|string'
         ];
     }
 }

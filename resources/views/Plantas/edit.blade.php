@@ -27,54 +27,45 @@
                     @method("PUT")
 
                     <div class="mb-3 row">
-                        <label for="code" class="col-md-4 col-form-label text-md-end text-start">Code</label>
+                        <label for="id" class="col-md-4 col-form-label text-md-end text-start">Id</label>
                         <div class="col-md-6">
-                          <input type="text" class="form-control @error('code') is-invalid @enderror" id="code" name="code" value="{{ $planta->code }}">
-                            @if ($errors->has('code'))
-                                <span class="text-danger">{{ $errors->first('code') }}</span>
+                          <input type="text" class="form-control @error('id') is-invalid @enderror"  id="id" name="id" value="{{ $planta->id }}">
+                            @if ($errors->has('id'))
+                                <span class="text-danger">{{ $errors->first('id') }}</span>
                             @endif
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="name" class="col-md-4 col-form-label text-md-end text-start">Name</label>
+                        <label for="Espécie" class="col-md-4 col-form-label text-md-end text-start">Espécie</label>
                         <div class="col-md-6">
-                          <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $planta->name }}">
-                            @if ($errors->has('name'))
-                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                          <input type="text" class="form-control @error('Espécie') is-invalid @enderror" id="Espécie" name="Espécie" value="{{ $planta->Espécie }}">
+                            @if ($errors->has('Espécie'))
+                                <span class="text-danger">{{ $errors->first('Espécie') }}</span>
                             @endif
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="quantity" class="col-md-4 col-form-label text-md-end text-start">Quantity</label>
+                        <label for="Tipo" class="col-md-4 col-form-label text-md-end text-start">Tipo</label>
                         <div class="col-md-6">
-                          <input type="number" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" value="{{ $planta->quantity }}">
-                            @if ($errors->has('quantity'))
-                                <span class="text-danger">{{ $errors->first('quantity') }}</span>
+                          <input type="text" class="form-control @error('Tipo') is-invalid @enderror" id="Tipo" name="Tipo" value="{{ $planta->Tipo }}">
+                            @if ($errors->has('Tipo'))
+                                <span class="text-danger">{{ $errors->first('Tipo') }}</span>
+                            @endif
+                        </div>
+                    </div>-
+
+                    <div class="mb-3 row">
+                        <label for="Porte" class="col-md-4 col-form-label text-md-end text-start">Porte</label>
+                        <div class="col-md-6">
+                          <input type="number" step="0.01" class="form-control @error('Porte') is-invalid @enderror" id="Porte" name="Porte" value="{{ $planta->Porte }}">
+                            @if ($errors->has('Porte'))
+                                <span class="text-danger">{{ $errors->first('Porte') }}</span>
                             @endif
                         </div>
                     </div>
 
-                    <div class="mb-3 row">
-                        <label for="price" class="col-md-4 col-form-label text-md-end text-start">Price</label>
-                        <div class="col-md-6">
-                          <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ $planta->price }}">
-                            @if ($errors->has('price'))
-                                <span class="text-danger">{{ $errors->first('price') }}</span>
-                            @endif
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label for="description" class="col-md-4 col-form-label text-md-end text-start">Description</label>
-                        <div class="col-md-6">
-                            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description">{{ $planta->description }}</textarea>
-                            @if ($errors->has('description'))
-                                <span class="text-danger">{{ $errors->first('description') }}</span>
-                            @endif
-                        </div>
-                    </div>
                     
                     <div class="mb-3 row">
                         <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Update">
