@@ -93,6 +93,10 @@ class plantasController extends Controller
 
         if ($image = $request->file('Foto')) {
 
+            if (file_exists(public_path('images/' . $planta->Foto))){
+                $filedeleted = unlink(public_path('images/' . $planta->Foto));
+             } 
+
             $destinationPath = 'images/';
 
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
