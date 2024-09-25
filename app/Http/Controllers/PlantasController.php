@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\plantas;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreplantasRequest;
@@ -35,7 +37,27 @@ class plantasController extends Controller
      */
     public function store(StorePlantasRequest $request) : RedirectResponse
     {
-        Plantas::create($request->all());
+        $request->validate([
+            'Foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+    
+        $input = $request->all();
+
+
+        if ($image = $request->file('Foto')) {
+
+            $destinationPath = 'images/';
+
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+
+            $image->move($destinationPath, $profileImage);
+
+            $input['Foto'] = "$profileImage";
+
+        }
+
+        Plantas::create($input);
         return redirect()->route('plantas.index')
                 ->withSuccess('Nova Planta adicionada com sucesso.');
     }
@@ -66,7 +88,27 @@ class plantasController extends Controller
 
      public function update(UpdatePlantasRequest $request, Plantas $planta) : RedirectResponse
      {
-         $planta->update($request->except(['id'])); // Exclui o campo 'id' do request
+       
+        $input = $request->all();
+
+        if ($image = $request->file('Foto')) {
+
+            $destinationPath = 'images/';
+
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+
+            $image->move($destinationPath, $profileImage);
+
+            $input['Foto'] = "$profileImage";
+
+        }else{
+
+            unset($input['Foto']);
+
+        }
+
+        $planta->update($input); // Exclui o campo 'id' do request
+
          return redirect()->route('plantas.index')
                  ->withSuccess('planta is updated successfully.');
      }
@@ -77,6 +119,14 @@ class plantasController extends Controller
      */
     public function destroy(Plantas $planta) : RedirectResponse
     {
+ 
+        if (file_exists(public_path('images/' . $planta->Foto))){
+            $filedeleted = unlink(public_path('images/' . $planta->Foto));
+            if ($filedeleted) {
+               echo "File deleted";
+            }
+         } 
+
         $planta->delete();
         return redirect()->route('plantas.index')
                 ->withSuccess('plantas is deleted successfully.');

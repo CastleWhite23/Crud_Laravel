@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('plantas.update', $planta->id) }}" method="post">
+                <form action="{{ route('plantas.update', $planta->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method("PUT")
 
@@ -65,6 +65,15 @@
                             @endif
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label for="Foto" class="col-md-4 col-form-label text-md-end text-start">Foto</label>
+                        <div class="col-md-6">
+                          <input type="file" placeholder="Foto" class="form-control" name="Foto">
+                          <img src="/images/{{ $planta->Foto }}" width="300px">
+                        </div>
+                    </div>
+
+            </div>
 
                     
                     <div class="mb-3 row">

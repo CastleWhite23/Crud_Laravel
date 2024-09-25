@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('plantas.store') }}" method="post">
+                <form action="{{ route('plantas.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3 row">
@@ -52,7 +52,7 @@
                     <div class="mb-3 row">
                         <label for="Foto" class="col-md-4 col-form-label text-md-end text-start">Foto</label>
                         <div class="col-md-6">
-                          <input type="text" class="form-control @error('Foto') is-invalid @enderror" id="Foto" name="Foto" value="{{ old('Foto') }}">
+                          <input type="file" placeholder="Foto" class="form-control @error('Foto') is-invalid @enderror" id="Foto" name="Foto">
                             @if ($errors->has('Foto'))
                                 <span claqss="text-danger">{{ $errors->first('Foto') }}</span>
                             @endif

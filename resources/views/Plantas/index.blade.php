@@ -33,7 +33,9 @@
                             <td>{{ $planta->Espécie }}</td>
                             <td>{{ $planta->Tipo }}</td>
                             <td>{{ $planta->Porte }}</td>
-                            <td>{{ $planta->Foto }}</td>
+                            <td><img src="/images/{{ $planta->Foto }}" width="100px"></td>
+                         
+                           
                             <td>
                                 <form action="{{ route('plantas.destroy', $planta->id) }}" method="post">
                                     @csrf
