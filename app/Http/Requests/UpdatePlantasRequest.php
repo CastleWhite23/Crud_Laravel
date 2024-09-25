@@ -26,7 +26,7 @@ class UpdatePlantasRequest extends FormRequest
             'Espécie' => 'required|string|max:250',
             'Tipo' => 'required|string|max:10000',
             'Porte' => 'required',
-            'Foto' => 'nullable|string'
+            'Foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 }
