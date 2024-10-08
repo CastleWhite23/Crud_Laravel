@@ -12,6 +12,15 @@ use App\Http\Requests\UpdateplantasRequest;
 
 class plantasController extends Controller
 {
+    public function __construct()
+    {
+       $this->middleware('auth');
+       $this->middleware('permission:create-planta|edit-planta|delete-planta', ['only' => ['index','show']]);
+       $this->middleware('permission:create-planta', ['only' => ['create','store']]);
+       $this->middleware('permission:edit-planta', ['only' => ['edit','update']]);
+       $this->middleware('permission:delete-planta', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */
