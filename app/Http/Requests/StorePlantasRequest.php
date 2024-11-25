@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePlantasRequest extends FormRequest
+class StorePlantasRequest  extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class StorePlantasRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+           
         ];
     }
 }
