@@ -1,5 +1,5 @@
+@extends('layouts.app')
 
-@extends('plantas.layouts') 
 
 @section('content')
 
@@ -7,12 +7,12 @@
     <div class="col-md-8">
 
         <div class="card">
-            <div class="card-header">
+            <div class="card-header" style="background-color: #90EE90; color: #000; font-weight: bold; font-size: 1.25rem; border-bottom: 2px solid #5b9a63;">
                 <div class="float-start">
                     plantas Information
                 </div>
                 <div class="float-end">
-                    <a href="{{ route('plantas.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
+                    <a href="{{ route('plantas.index') }}" class="btn btn-success btn-sm">&larr; Back</a>
                 </div>
             </div>
             <div class="card-body">
